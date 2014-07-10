@@ -10,7 +10,7 @@ end
 
 execute 'extract_wkhtmltopdf' do
   cwd cache_dir
-  command "tar -jxf #{download_dest}"
+  command "tar -Jxf #{download_dest}"
   creates File.join(cache_dir, 'wkhtmltox')
 end
 

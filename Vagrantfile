@@ -87,9 +87,13 @@ Vagrant.configure('2') do |config|
   config.vm.provision :chef_solo do |chef|
     chef.log_level = :debug
     chef.json = {
+      :wkhtmltopdf => {
+        :version => "0.12.1",
+        :archive => "wkhtmltox-0.12.1_linux-trusty-amd64.deb"
+      }
     }
     chef.run_list = [
-      "recipe[#{cookbook}]"
+      "recipe[wkhtmltopdf::ubuntu]"
     ]
   end
 end
